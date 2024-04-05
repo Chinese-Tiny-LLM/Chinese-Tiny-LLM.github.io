@@ -291,8 +291,70 @@
         </div>
     </section>
 
-    
-
+    <section class="hero">
+        <h2 class="title has-text-centered">CHC-Bench</h2>
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <p><strong>Why CHC-Bench is hard for LLMs.</strong> CHC-Bench tests LLMs on their deep understanding of Chinese culture, history, traditions, as well as humanities, geography, and STEM, all within the Chinese context. It includes tasks that require knowledge of Chinese literary traditions, such as poetry and couplet writing, ancient Chinese comprehension, pronunciation mastery, and explanation of terms. LLMs trained mainly on English data might struggle with these tasks compared to English benchmarks like MTbench. Models with limited Chinese training data, like TinyLlama-1.1B-Chat, Deepseek-coder-1.3b, and Bloom-1.7b, often score below 3.00 in categories involving Chinese cultural and language understanding. For STEM, the assessment focuses on various difficulty levels, especially on Chinese high school subjects like math, physics, chemistry, biology, and coding, requiring understanding of Chinese commands.</p>
+                <div class="columns is-centered">
+                    <div class="column has-text-centered is-fifths-fifths">
+                        <table id="special-table" class="table table-bordered table-hover table-custom" style="margin: auto; width: auto;">
+                            <thead class="thead-light">
+                                <tr style="text-align: center;">
+                                    <th>Category</th>
+                                    <th style="min-width: 700px;">Subcategories</th>
+                                    <th style="min-width: 150px;">Total Questions</th>
+                                </tr>
+                            </thead>
+                            <tbody style="text-align: center;">
+                                <tr>
+                                    <td>Writing</td>
+                                    <td>Official documents, Advertisement Writing, Poetry and couplets, Creative writing</td>
+                                    <td>33</td>
+                                </tr>
+                                <tr>
+                                    <td>Humanity</td>
+                                    <td>Historical common sense, Geography(Gaokao), History (Gaokao)</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>Science</td>
+                                    <td>Physics(Gaokao), Chemistry(Gaokao), Biology(Gaokao)</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>Role-playing</td>
+                                    <td>20 Characters including Batman, Wukong, etc.</td>
+                                    <td>20</td>
+                                </tr>  
+                                <tr>
+                                    <td>Reading Comprehension</td>
+                                    <td>Chinese language (Gaokao), Information understanding, Argument analysis</td>
+                                    <td>30</td>
+                                </tr>
+                                <tr>
+                                    <td>Math</td>
+                                    <td>Elementary math, Middle school math, Math (Gaokao), College math</td>
+                                    <td>34</td>
+                                </tr>  
+                                <tr>
+                                    <td>Hard Cases</td>
+                                    <td>Ancient Chinese Language(Gaokao), Chinese pronunciation(Gaokao), Popular Chinese terms</td>
+                                    <td>37</td>
+                                </tr>
+                                <tr>
+                                    <td>Coding</td>
+                                    <td>Chinese command code generation, Code translation, Code annotation, Debugging</td>
+                                    <td>20</td>
+                                </tr> 
+                            </tbody>
+                        </table>
+                        <caption style="font-style: italic; clear: both;">CHC-Bench Problem Categories. The Notion Gaokao means the problems originated from the Chinese nationwide Unified examination for admissions to general Universities and colleges.</caption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="hero">
         <div class="hero-body">
@@ -1058,71 +1120,6 @@
                             </tbody>
                         </table>
                         <h2 class="subtitle" style="font-style: italic; clear: both;">This table show cases evaluation results across a variety of datasets for models of different train tokens, from 13.3B to 1200B. 'BoolQ' stands for Boolean Questions, 'CB' for CommitmentBank, 'COPA' for Choice of Plausible Alternatives, 'RTE' for Recognizing Textual Entailment, 'MultiRC' for Multi-Sentence Reading Comprehension, 'WiC' for Words in Context, 'Piqa' for Physical IQA, 'Siqa' for Social IQA, 'ARC-e' and 'ARC-c' for ARC Easy and Challenge, 'OBQA' for Open Book Question Answering, 'CSQA' for Commonsense Question Answering, 'MBPP' for Mostly Basic Python Problems, 'Nq' for NaturalQuestions and 'Avg' represents the average over the benchmark. The '*' symbol refers to subsets within the MMLU, CMMLU, and C-Eval.</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="hero">
-        <h2 class="title has-text-centered">CHC-Bench</h2>
-        <div class="hero-body">
-            <div class="container is-max-desktop">
-                <p><strong>Why CHC-Bench is hard for LLMs.</strong> CHC-Bench tests LLMs on their deep understanding of Chinese culture, history, traditions, as well as humanities, geography, and STEM, all within the Chinese context. It includes tasks that require knowledge of Chinese literary traditions, such as poetry and couplet writing, ancient Chinese comprehension, pronunciation mastery, and explanation of terms. LLMs trained mainly on English data might struggle with these tasks compared to English benchmarks like MTbench. Models with limited Chinese training data, like TinyLlama-1.1B-Chat, Deepseek-coder-1.3b, and Bloom-1.7b, often score below 3.00 in categories involving Chinese cultural and language understanding. For STEM, the assessment focuses on various difficulty levels, especially on Chinese high school subjects like math, physics, chemistry, biology, and coding, requiring understanding of Chinese commands.</p>
-                <div class="columns is-centered">
-                    <div class="column has-text-centered is-fifths-fifths">
-                        <table id="special-table" class="table table-bordered table-hover table-custom" style="margin: auto; width: auto;">
-                            <thead class="thead-light">
-                                <tr style="text-align: center;">
-                                    <th>Category</th>
-                                    <th style="min-width: 700px;">Subcategories</th>
-                                    <th style="min-width: 150px;">Total Questions</th>
-                                </tr>
-                            </thead>
-                            <tbody style="text-align: center;">
-                                <tr>
-                                    <td>Writing</td>
-                                    <td>Official documents, Advertisement Writing, Poetry and couplets, Creative writing</td>
-                                    <td>33</td>
-                                </tr>
-                                <tr>
-                                    <td>Humanity</td>
-                                    <td>Historical common sense, Geography(Gaokao), History (Gaokao)</td>
-                                    <td>20</td>
-                                </tr>
-                                <tr>
-                                    <td>Science</td>
-                                    <td>Physics(Gaokao), Chemistry(Gaokao), Biology(Gaokao)</td>
-                                    <td>20</td>
-                                </tr>
-                                <tr>
-                                    <td>Role-playing</td>
-                                    <td>20 Characters including Batman, Wukong, etc.</td>
-                                    <td>20</td>
-                                </tr>  
-                                <tr>
-                                    <td>Reading Comprehension</td>
-                                    <td>Chinese language (Gaokao), Information understanding, Argument analysis</td>
-                                    <td>30</td>
-                                </tr>
-                                <tr>
-                                    <td>Math</td>
-                                    <td>Elementary math, Middle school math, Math (Gaokao), College math</td>
-                                    <td>34</td>
-                                </tr>  
-                                <tr>
-                                    <td>Hard Cases</td>
-                                    <td>Ancient Chinese Language(Gaokao), Chinese pronunciation(Gaokao), Popular Chinese terms</td>
-                                    <td>37</td>
-                                </tr>
-                                <tr>
-                                    <td>Coding</td>
-                                    <td>Chinese command code generation, Code translation, Code annotation, Debugging</td>
-                                    <td>20</td>
-                                </tr> 
-                            </tbody>
-                        </table>
-                        <caption style="font-style: italic; clear: both;">CHC-Bench Problem Categories. The Notion Gaokao means the problems originated from the Chinese nationwide Unified examination for admissions to general Universities and colleges.</caption>
                     </div>
                 </div>
             </div>
