@@ -47,14 +47,14 @@
     <script type="text/javascript" charset="utf8" src="static/js/jquery-3.5.1.js"></script>
     <script type="text/javascript" charset="utf8" src="static/js/jquery.dataTables.js"></script>
     <style>
-        #special-table tbody tr td:nth-child(3),
-        #special-table tbody tr td:nth-child(7) {
-            padding-right: 20px;
+        /* #special-table tbody tr td:nth-child(0),
+        #special-table tbody tr td:nth-child(1) {
+            padding-right: 30px;
         }
-        #special-table tbody tr td:nth-child(4),
-        #special-table tbody tr td:nth-child(8) {
-            padding-left: 20px;
-        }
+        #special-table tbody tr td:nth-child(0),
+        #special-table tbody tr td:nth-child(1) {
+            padding-left: 30px;
+        } */
 
         .number-box {
             border: 1px solid #000; /* 黑色边框 */
@@ -118,6 +118,1285 @@
                     </div>
 
     
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+
+                                <span class="link-block">
+                                    <a href="https://huggingface.co/datasets/m-a-p/MAP-CC" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">🤗</span>
+                                        <span>MAP-CC</span>
+                                    </a>
+                                </span>
+
+                                <span class="link-block">
+                                    <a href="https://huggingface.co/datasets/m-a-p/CHC-Bench" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">🤗</span>
+                                        <span>CHC-Bench</span>
+                                    </a>
+                                </span>
+
+                                <span class="link-block">
+                                    <a href="https://huggingface.co/collections/m-a-p/chinese-tiny-llm-660d0133dff6856f94ce0fc6" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">🤗</span>
+                                        <span>CT-LLM</span>
+                                    </a>
+                                </span>
+
+                                <!-- Github link -->
+                                <span class="link-block">
+                                    <a href="https://github.com/XinrunDu/Chinese-Tiny-LLM" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon"><i class="fab fa-github"></i></span>
+                                        <span>Code</span>
+                                </a>
+                                </span>
+
+                                <!-- ArXiv abstract Link -->
+                                <span class="link-block">
+                                    <a href="" target="_blank"
+                                    class="external-link button is-normal is-rounded is-dark">
+                                    <span class="icon">
+                                        <i class="ai ai-arxiv"></i>
+                                    </span>
+                                <span>arXiv</span>
+                                </a>
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Paper abstract -->
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h2 class="title is-3">Abstract</h2>
+                        <div class="content has-text-justified">
+                            <p>
+                                We introduce CT-LLM, a 2B parameter language model, marking a shift towards focusing on the Chinese language for LLM development. Starting from scratch, CT-LLM primarily uses Chinese data from a 1,200 billion token corpus, including 800 billion Chinese, 300 billion English, and 100 billion code tokens. This mix enhances its Chinese processing abilities, further improved by alignment techniques. CT-LLM shows excellent performance in Chinese language tasks on the CHC-Bench and is also adept in English through SFT. This approach challenges the norm of relying on English corpora for LLM training, expanding training methodologies. By open-sourcing CT-LLM's training process, including data processing and the Massive Appropriate Pretraining Chinese Corpus (MAP-CC), and introducing the Chinese Hard Case Benchmark (CHC-Bench), we encourage further research and innovation, aiming for more inclusive and adaptable language models.
+                            </p>
+                            <ul>
+                                <li><strong>MAP-CC</strong> An open-source Chinese pretraining dataset with a scale of 800 billion tokens, along with a detailed suite of procedures for cleaning Chinese web corpora, offering the NLP community high-quality Chinese pretraining data and an effective methodology for data preparation. </li>
+                                <li><strong>CHC-Bench</strong> A well-chosen multidisciplinary Chinese hard cases instruction understanding and following benchmark. </li>
+                                <li><strong>CT-LLM</strong> The first Chinese-centric large language model, both pre-training and fine-tuned primarily on Chinese corpora, offers significant insights into potential biases, Chinese language ability, and multilingual adaptability. </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End paper abstract -->
+
+    <section class="hero">
+        <h2 class="title has-text-centered">Dataset Composition</h2>
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column is-four-fifths">
+                        <div class="item">
+                            <!-- Image and caption wrapper with float right -->
+                            <div style="float: right; margin-left: 20px; max-width: 35%; text-align: center;">
+                                <img src="static/images/data-ratio.png" style="width: 100%; height: auto;" />
+                                <h2 class="subtitle" style="font-style: italic;">
+                                    Pretraining data distribution, where "zh" represents Chinese data, "en" represents English data, "cc" stands for Common Crawl, including publicly available web documents, etc., and 'encyc.' refers to the encyclopedia.
+                                </h2>
+                            </div>
+                            <p>
+                                The diversity and comprehensiveness of the dataset are crucial for training a large language model for a general domain. Guided by the aforementioned principles and our emphasis on utilizing Chinese corpora for model training, we have developed a dataset encompassing 1,254.68 billion tokens. This dataset integrates Chinese, English, and code data, consisting of 840.48 billion Chinese tokens, 314.88 billion English tokens, and 99.3 billion code tokens. The dataset aggregates content from diverse sources, such as web documents from Common Crawl, scholarly articles, encyclopedias, and books.
+                            </p>
+                            <ul>
+                                MAP-CC consists of several components, each originating from different sources and serving various purposes in language modeling and processing. Below is a brief overview of each component:
+                                <li><strong>zh-cc (Chinese Common Crawl)</strong>
+                                Extracts from the Common Crawl project specifically filtered for Chinese content. This component is rich in diverse internet text, ranging from websites, blogs, news articles, and more.</li>
+                                <li><strong>zh-encyc. (Chinese Encyclopedias)</strong>
+                                A collection of articles from various Chinese encyclopedias, similar to Wikipedia but including other encyclopedic sources as well.</li>
+                                <li><strong>zh-papers (Chinese Academic Papers)</strong>
+                                This component consists of academic and research papers published in Chinese. It covers a wide range of disciplines and offers technical, domain-specific language.</li>
+                                <li><strong>zh-books (Chinese Books)</strong>
+                                Comprises texts extracted from books published in Chinese. This includes literature, non-fiction, textbooks, and more.</li>
+                                <li><strong>zh-others</strong>
+                                This category is a collection of miscellaneous texts, notably including a substantial amount of QA (Question and Answer) data, alongside a variety of other texts.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero">
+        <h2 class="title has-text-centered">Construction of MAP-CC</h2>
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column is-four-fifths">
+                        <!-- Text with embedded image -->
+                        <div class="item">
+                            <!-- Image with float right -->
+                            <img src="static/images/data-processing.png" style="float: right; margin-left: 20px; max-width: 100%; height: auto;" />
+                            <!-- Caption for image -->
+                            <h2 class="subtitle" style="font-style: italic; clear: both;">
+                                Above is the data processing flow and deduplication ratios, below is a schematic diagram of similar line deduplication.
+                            </h2>
+                            <ul>
+                                <li><strong>Heuristic Rules</strong>
+                                To filter out low-quality data, we established heuristic rules within an integrated framework, drawing inspiration from the filtering methodologies of RefinedWeb, CCNet, and practices from training models like Gopher and T5. Additionally, we crafted rules to suit the unique aspects of our dataset. Notably, while existing rules predominantly focus on filtering English data, we've specifically adapted and modified these for Chinese datasets. The parameters and specifics of these rules were refined through analyses of sampled documents from our dataset.<br><br></li>
+                                <li><strong>Deduplication</strong><br>
+                                We've established a comprehensive deduplication pipeline following a detailed filtration process. This pipeline tackles duplicate content within documents through three main strategies: exact document-level deduplication, document-level Minhash deduplication, and intra-document-level similar line deduplication. <br><br></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero">
+        <h2 class="title has-text-centered">Model Architecture</h2>
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column is-four-fifths">
+                        <div class="item">
+                            <!-- Image and caption wrapper with float right -->
+                            <div style="float: right; margin-left: 20px; max-width: 35%; text-align: center;">
+                                <img src="static/images/model-parameters.png" style="width: 100%; height: auto;" />
+                            </div>
+                            <p>
+                                Our model's architecture is based on the transformer decoder. The key parameters that define our architecture are shown in Table 1, with the models being trained on a substantial context length of 4096 tokens. Beyond the foundational elements, our approach integrates several improvements compared to the original transformer.
+                            </p>
+                            <ul>
+                                <li><strong>Multi-Head Attention Mechanism.</strong>
+                                In our model, we employ the multi-head attention mechanism. It has been demonstrated that adopting various multi-head attention enhances the model's performance across different scales.</li>
+                                <li><strong>RoPE Embeddings</strong>
+                                Instead of relying on absolute positional embeddings, our architecture incorporates rotary positional embeddings at each layer. Furthermore, to minimize the overall model size, embeddings are shared between inputs and outputs.</li>
+                                <li><strong>SwiGLU Activations</strong>
+                                The standard ReLU non-linearity is replaced by the SwiGLU activation function.</li>
+                                <li><strong>RMSNorm</strong>
+                                Same to Llama2 model 7B serious. We normalize the input of each transformer sub-layer, the attention layer, and the feedforward layer, with RMSNorm.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered is-fifths-fifths">
+                        <h2 class="title is-3">Details of intermediate checkpoints evaluation results</h2>
+                        <div class="buttonGroup" data-table-id="#tabResults1">
+                            <button value="ALL">All</button>
+                            <button value="SB">Standard Benchmarks</button>
+                            <button value="CG">Code Generation</button>
+                            <button value="WK">World Knowledge</button>
+                            <button value="Pre">Pretraining</button>
+                            <button value="RC">Reading Comprehension</button>
+                            <button value="Ex">Exams</button>
+                            <button value="Ch">Chinese</button>
+                        </div>
+                        <table id="special-table" class="table table-bordered table-hover table-custom" style="margin: auto; width: auto;">
+                            <thead class="thead-light">
+                                <tr style="text-align: center;">
+                                    <th style="vertical-align: bottom; font-size: 16px; min-width: 150px;">Dataset</th>
+                                    <th style="vertical-align: middle; font-size: 16px;">13.3B</th>
+                                    <th style="vertical-align: middle; font-size: 16px;">39.9B</th>
+                                    <th style="vertical-align: middle; font-size: 16px;">66.7B</th>
+                                    <th style="vertical-align: middle; font-size: 16px;">93.3B</th>
+                                    <th style="vertical-align: middle; font-size: 16px;">200B</th>
+                                    <th style="vertical-align: middle; font-size: 16px;">306.6B</th>
+                                    <th style="vertical-align: middle; font-size: 16px;">400B</th>
+                                    <th style="vertical-align: middle; font-size: 16px;">506.6B</th>
+                                    <th style="vertical-align: middle; font-size: 16px;">599.9B</th>
+                                    <th style="vertical-align: middle; font-size: 16px;">706.6B</th>
+                                    <th style="vertical-align: middle; font-size: 16px;">800B</th>
+                                    <th style="vertical-align: middle; font-size: 16px;">906.6B</th>
+                                    <th style="vertical-align: middle; font-size: 16px;">999.9B</th>
+                                    <th style="vertical-align: middle; font-size: 16px;">1106.5B</th>
+                                    <th style="vertical-align: middle; font-size: 16px;">Final</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabResults1" style="text-align: center">
+                                <tr class="th">
+                                    <td id="SB" colspan="16" style="text-align: center; font-weight: bold;">Standard Benchmarks</td>
+                                </tr>
+                                <tr>
+                                <td>BoolQ</td>
+                                        <td>51.74</td>
+                                        <td>44.04</td>
+                                        <td>43.98</td>
+                                        <td>48.1</td>
+                                        <td>39.97</td>
+                                        <td>43.7</td>
+                                        <td>41.87</td>
+                                        <td>39.69</td>
+                                        <td>43.39</td>
+                                        <td>52.29</td>
+                                        <td>44.53</td>
+                                        <td>45.69</td>
+                                        <td>43.73</td>
+                                        <td>52.29</td>
+                                        <td>42.17</td>
+                                </tr>
+                                <tr>
+                                <td>CB</td>
+                                        <td>42.86</td>
+                                        <td>50.00</td>
+                                        <td>50.00</td>
+                                        <td>50.00</td>
+                                        <td>50.00</td>
+                                        <td>50.00</td>
+                                        <td>50.00</td>
+                                        <td>50.00</td>
+                                        <td>50.00</td>
+                                        <td>50.00</td>
+                                        <td>50.00</td>
+                                        <td>50.00</td>
+                                        <td>50.00</td>
+                                        <td>50.00</td>
+                                        <td>51.79</td>
+                                </tr>
+                                <tr>
+                                <td>COPA</td>
+                                        <td>47</td>
+                                        <td>52</td>
+                                        <td>54</td>
+                                        <td>52</td>
+                                        <td>55</td>
+                                        <td>57</td>
+                                        <td>56</td>
+                                        <td>61</td>
+                                        <td>60</td>
+                                        <td>61</td>
+                                        <td>56</td>
+                                        <td>59</td>
+                                        <td>59</td>
+                                        <td>60</td>
+                                        <td>59</td>
+                                </tr>
+                                <tr>
+                                <td>RTE</td>
+                                        <td>48.38</td>
+                                        <td>51.26</td>
+                                        <td>51.62</td>
+                                        <td>55.23</td>
+                                        <td>51.99</td>
+                                        <td>54.87</td>
+                                        <td>52.71</td>
+                                        <td>50.9</td>
+                                        <td>51.26</td>
+                                        <td>54.51</td>
+                                        <td>49.46</td>
+                                        <td>53.07</td>
+                                        <td>53.79</td>
+                                        <td>52.71</td>
+                                        <td>53.07</td>
+                                </tr>
+                                <tr>
+                                <td>MultiRC</td>
+                                        <td>57.01</td>
+                                        <td>57.26</td>
+                                        <td>57.26</td>
+                                        <td>57.22</td>
+                                        <td>57.26</td>
+                                        <td>57.22</td>
+                                        <td>57.22</td>
+                                        <td>57.22</td>
+                                        <td>57.22</td>
+                                        <td>57.22</td>
+                                        <td>57.22</td>
+                                        <td>57.24</td>
+                                        <td>57.22</td>
+                                        <td>57.22</td>
+                                        <td>57.24</td>
+                                </tr>
+                                <tr>
+                                <td>WiC</td>
+                                        <td>50.31</td>
+                                        <td>50.47</td>
+                                        <td>52.82</td>
+                                        <td>50.16</td>
+                                        <td>50.47</td>
+                                        <td>50</td>
+                                        <td>50.31</td>
+                                        <td>50</td>
+                                        <td>50.16</td>
+                                        <td>49.84</td>
+                                        <td>49.84</td>
+                                        <td>49.84</td>
+                                        <td>50</td>
+                                        <td>49.69</td>
+                                        <td>49.84</td>
+                                </tr>
+                                <tr>
+                                <td>Piqa</td>
+                                        <td>58.38</td>
+                                        <td>64.69</td>
+                                        <td>65.34</td>
+                                        <td>67.25</td>
+                                        <td>68.23</td>
+                                        <td>68.12</td>
+                                        <td>68.88</td>
+                                        <td>69.75</td>
+                                        <td>69.37</td>
+                                        <td>69.26</td>
+                                        <td>70.18</td>
+                                        <td>70.73</td>
+                                        <td>70.46</td>
+                                        <td>70.29</td>
+                                        <td>70.73</td>
+                                </tr>
+                                <tr>
+                                <td>Siqa</td>
+                                        <td>36.9</td>
+                                        <td>38.43</td>
+                                        <td>39.3</td>
+                                        <td>40.53</td>
+                                        <td>41.25</td>
+                                        <td>41.15</td>
+                                        <td>41.91</td>
+                                        <td>41.45</td>
+                                        <td>41.66</td>
+                                        <td>41.86</td>
+                                        <td>41.15</td>
+                                        <td>43.5</td>
+                                        <td>42.68</td>
+                                        <td>43.14</td>
+                                        <td>41.97</td>
+                                </tr>
+                                <tr>
+                                <td>Hellaswag</td>
+                                        <td>26.5</td>
+                                        <td>33.3</td>
+                                        <td>36.48</td>
+                                        <td>38.72</td>
+                                        <td>42.79</td>
+                                        <td>44.67</td>
+                                        <td>45.55</td>
+                                        <td>46.77</td>
+                                        <td>47.55</td>
+                                        <td>47.81</td>
+                                        <td>48.51</td>
+                                        <td>49.16</td>
+                                        <td>49.62</td>
+                                        <td>49.87</td>
+                                        <td>50.37</td>
+                                </tr>
+                                <tr>
+                                <td>Winogrande</td>
+                                        <td>50.59</td>
+                                        <td>52.49</td>
+                                        <td>52.09</td>
+                                        <td>52.25</td>
+                                        <td>52.17</td>
+                                        <td>53.75</td>
+                                        <td>53.43</td>
+                                        <td>55.64</td>
+                                        <td>55.01</td>
+                                        <td>54.85</td>
+                                        <td>56.67</td>
+                                        <td>56.43</td>
+                                        <td>56.43</td>
+                                        <td>55.56</td>
+                                        <td>58.01</td>
+                                </tr>
+                                <tr>
+                                <td>ARC-e</td>
+                                        <td>28.22</td>
+                                        <td>39.15</td>
+                                        <td>43.92</td>
+                                        <td>43.74</td>
+                                        <td>47.09</td>
+                                        <td>49.21</td>
+                                        <td>50.97</td>
+                                        <td>47.8</td>
+                                        <td>47.27</td>
+                                        <td>49.74</td>
+                                        <td>51.32</td>
+                                        <td>51.15</td>
+                                        <td>51.85</td>
+                                        <td>50.97</td>
+                                        <td>50.44</td>
+                                </tr>
+                                <tr>
+                                <td>ARC-c</td>
+                                        <td>21.02</td>
+                                        <td>22.71</td>
+                                        <td>21.36</td>
+                                        <td>20.34</td>
+                                        <td>23.39</td>
+                                        <td>25.08</td>
+                                        <td>26.44</td>
+                                        <td>26.44</td>
+                                        <td>25.76</td>
+                                        <td>27.46</td>
+                                        <td>27.46</td>
+                                        <td>27.46</td>
+                                        <td>27.12</td>
+                                        <td>27.12</td>
+                                        <td>29.15</td>
+                                </tr>
+                                <tr>
+                                <td>OBQA</td>
+                                        <td>23.4</td>
+                                        <td>22.2</td>
+                                        <td>25.4</td>
+                                        <td>25.6</td>
+                                        <td>26.6</td>
+                                        <td>22.4</td>
+                                        <td>30.4</td>
+                                        <td>27.6</td>
+                                        <td>36.6</td>
+                                        <td>44.0</td>
+                                        <td>44.2</td>
+                                        <td>39.2</td>
+                                        <td>45.4</td>
+                                        <td>52.8</td>
+                                        <td>48.8</td>
+                                </tr>
+                                <tr>
+                                <td>CSQA</td>
+                                        <td>27.93</td>
+                                        <td>35.71</td>
+                                        <td>38.41</td>
+                                        <td>38.98</td>
+                                        <td>42.83</td>
+                                        <td>44.64</td>
+                                        <td>45.7</td>
+                                        <td>45.86</td>
+                                        <td>46.68</td>
+                                        <td>46.44</td>
+                                        <td>45.62</td>
+                                        <td>48.16</td>
+                                        <td>48.4</td>
+                                        <td>48.73</td>
+                                        <td>48.57</td>
+                                </tr>
+                                <tr>
+                                <td>MMLU-Avg</td>
+                                        <td>26.15</td>
+                                        <td>26.09</td>
+                                        <td>26.49</td>
+                                        <td>27.11</td>
+                                        <td>26.77</td>
+                                        <td>26.68</td>
+                                        <td>27.78</td>
+                                        <td>29.8</td>
+                                        <td>32.17</td>
+                                        <td>33.47</td>
+                                        <td>30.55</td>
+                                        <td>35.42</td>
+                                        <td>33.81</td>
+                                        <td>35.59</td>
+                                        <td>37.11</td>
+                                </tr>
+                                <tr>
+                                <td>*-humanities</td>
+                                        <td>25.51</td>
+                                        <td>25.35</td>
+                                        <td>26.38</td>
+                                        <td>27.34</td>
+                                        <td>25.6</td>
+                                        <td>27.54</td>
+                                        <td>27.82</td>
+                                        <td>30.65</td>
+                                        <td>31.34</td>
+                                        <td>32.91</td>
+                                        <td>32.47</td>
+                                        <td>34.73</td>
+                                        <td>33.26</td>
+                                        <td>35.53</td>
+                                        <td>38.62</td>
+                                </tr>
+                                <tr>
+                                <td>*-stem</td>
+                                        <td>26.5</td>
+                                        <td>25.33</td>
+                                        <td>26.6</td>
+                                        <td>27.74</td>
+                                        <td>26.6</td>
+                                        <td>26.4</td>
+                                        <td>27.93</td>
+                                        <td>29.75</td>
+                                        <td>30.98</td>
+                                        <td>33.26</td>
+                                        <td>28.95</td>
+                                        <td>33.06</td>
+                                        <td>32.29</td>
+                                        <td>32.22</td>
+                                        <td>33.93</td>
+                                </tr>
+                                <tr>
+                                <td>*-social-science</td>
+                                        <td>27.28</td>
+                                        <td>27.97</td>
+                                        <td>27.33</td>
+                                        <td>26.8</td>
+                                        <td>25.04</td>
+                                        <td>25.78</td>
+                                        <td>27.35</td>
+                                        <td>29.33</td>
+                                        <td>33.55</td>
+                                        <td>35.39</td>
+                                        <td>30.28</td>
+                                        <td>39.02</td>
+                                        <td>37.22</td>
+                                        <td>37.92</td>
+                                        <td>39.52</td>
+                                </tr>
+                                <tr>
+                                <td>*-other</td>
+                                        <td>25.24</td>
+                                        <td>26.21</td>
+                                        <td>25.68</td>
+                                        <td>26.27</td>
+                                        <td>29.77</td>
+                                        <td>27.07</td>
+                                        <td>27.89</td>
+                                        <td>29.44</td>
+                                        <td>33.46</td>
+                                        <td>32.58</td>
+                                        <td>31.23</td>
+                                        <td>36.23</td>
+                                        <td>33.42</td>
+                                        <td>38.42</td>
+                                        <td>38.05</td>
+                                </tr>
+                                <tr class="th">
+                                    <td id="CG" colspan="16" style="text-align: center; font-weight: bold;">Code Generation</td>
+                                </tr>
+                                <tr>
+                                <td>Humaneval</td>
+                                        <td>0.61</td>
+                                        <td>1.83</td>
+                                        <td>1.83</td>
+                                        <td>2.44</td>
+                                        <td>9.15</td>
+                                        <td>4.27</td>
+                                        <td>6.71</td>
+                                        <td>5.49</td>
+                                        <td>8.54</td>
+                                        <td>5.49</td>
+                                        <td>9.15</td>
+                                        <td>6.1</td>
+                                        <td>8.54</td>
+                                        <td>7.32</td>
+                                        <td>9.15</td>
+                                </tr>
+                                <tr>
+                                <td>MBPP</td>
+                                        <td>0</td>
+                                        <td>1.2</td>
+                                        <td>1</td>
+                                        <td>2.4</td>
+                                        <td>2.8</td>
+                                        <td>4.8</td>
+                                        <td>5</td>
+                                        <td>4</td>
+                                        <td>5.2</td>
+                                        <td>6.2</td>
+                                        <td>4</td>
+                                        <td>7.2</td>
+                                        <td>5.6</td>
+                                        <td>6.8</td>
+                                        <td>6.4</td>
+                                </tr>
+                                <tr class="th">
+                                    <td id="WK" colspan="16" style="text-align: center; font-weight: bold;">World Knowledge</td>
+                                </tr>
+                                <tr>
+                                <td>Nq</td>
+                                        <td>0.17</td>
+                                        <td>0.3</td>
+                                        <td>0.14</td>
+                                        <td>0.22</td>
+                                        <td>0.36</td>
+                                        <td>0.78</td>
+                                        <td>1.55</td>
+                                        <td>0.94</td>
+                                        <td>0.61</td>
+                                        <td>0.72</td>
+                                        <td>0.97</td>
+                                        <td>0.94</td>
+                                        <td>0.64</td>
+                                        <td>0.47</td>
+                                        <td>0.91</td>
+                                </tr>
+                                <tr>
+                                <td>Triviaqa</td>
+                                        <td>11.33</td>
+                                        <td>13.53</td>
+                                        <td>13.45</td>
+                                        <td>15.36</td>
+                                        <td>17.11</td>
+                                        <td>18.9</td>
+                                        <td>16.23</td>
+                                        <td>16.74</td>
+                                        <td>18.52</td>
+                                        <td>19.55</td>
+                                        <td>18.9</td>
+                                        <td>16.91</td>
+                                        <td>17.14</td>
+                                        <td>21.77</td>
+                                        <td>21.03</td>
+                                </tr>
+                                <tr class="th">
+                                    <td id="Pre" colspan="16" style="text-align: center; font-weight: bold;">Pretraining</td>
+                                </tr>
+                                <tr>
+                                <td>Lambada</td>
+                                        <td>19.48</td>
+                                        <td>34.37</td>
+                                        <td>43.2</td>
+                                        <td>42.85</td>
+                                        <td>45.51</td>
+                                        <td>50.2</td>
+                                        <td>51.81</td>
+                                        <td>51.64</td>
+                                        <td>53.76</td>
+                                        <td>55.89</td>
+                                        <td>53.56</td>
+                                        <td>51.87</td>
+                                        <td>54.9</td>
+                                        <td>56.3</td>
+                                        <td>56.24</td>
+                                </tr>
+                                <tr class="th">
+                                    <td id="RC" colspan="16" style="text-align: center; font-weight: bold;">Reading Comprehension</td>
+                                </tr>
+                                <tr>
+                                <td>Squad2.0</td>
+                                        <td>0.52</td>
+                                        <td>7.3</td>
+                                        <td>6.36</td>
+                                        <td>9.31</td>
+                                        <td>21.76</td>
+                                        <td>19.02</td>
+                                        <td>11.24</td>
+                                        <td>26.91</td>
+                                        <td>11.91</td>
+                                        <td>10.3</td>
+                                        <td>20.21</td>
+                                        <td>14.01</td>
+                                        <td>13.54</td>
+                                        <td>5.73</td>
+                                        <td>18.87</td>
+                                </tr>
+                                <tr class="th">
+                                    <td id="Ex" colspan="16" style="text-align: center; font-weight: bold;">Exams</td>
+                                </tr>
+                                <tr>
+                                <td>GSM8k</td>
+                                        <td>1.74</td>
+                                        <td>1.14</td>
+                                        <td>1.06</td>
+                                        <td>2.05</td>
+                                        <td>4.02</td>
+                                        <td>4.93</td>
+                                        <td>5.08</td>
+                                        <td>6.44</td>
+                                        <td>6.22</td>
+                                        <td>6.14</td>
+                                        <td>7.35</td>
+                                        <td>7.88</td>
+                                        <td>9.25</td>
+                                        <td>7.88</td>
+                                        <td>8.87</td>
+                                </tr>
+                                <tr>
+                                <td>TheoremQA</td>
+                                        <td>0</td>
+                                        <td>0.12</td>
+                                        <td>0</td>
+                                        <td>0.5</td>
+                                        <td>1.88</td>
+                                        <td>2.75</td>
+                                        <td>2.25</td>
+                                        <td>1.12</td>
+                                        <td>2.75</td>
+                                        <td>0.88</td>
+                                        <td>1.88</td>
+                                        <td>0.62</td>
+                                        <td>1.62</td>
+                                        <td>0.5</td>
+                                        <td>2.12</td>
+                                </tr>
+                                <tr class="th">
+                                    <td id="Ch" colspan="16" style="text-align: center; font-weight: bold;">Chinese</td>
+                                </tr>
+                                <tr>
+                                <td>C-Eval-Avg</td>
+                                        <td>27.89</td>
+                                        <td>22.53</td>
+                                        <td>25.63</td>
+                                        <td>23.07</td>
+                                        <td>26.83</td>
+                                        <td>23.68</td>
+                                        <td>27.37</td>
+                                        <td>26.4</td>
+                                        <td>30.46</td>
+                                        <td>32.39</td>
+                                        <td>32.66</td>
+                                        <td>36.05</td>
+                                        <td>36.49</td>
+                                        <td>36.99</td>
+                                        <td>36.78</td>
+                                </tr>
+                                <tr>
+                                <td>*-stem</td>
+                                        <td>28.93</td>
+                                        <td>22.78</td>
+                                        <td>25.15</td>
+                                        <td>22.84</td>
+                                        <td>23.69</td>
+                                        <td>22.37</td>
+                                        <td>23.83</td>
+                                        <td>22.96</td>
+                                        <td>26.25</td>
+                                        <td>25.79</td>
+                                        <td>27.69</td>
+                                        <td>30.77</td>
+                                        <td>32.51</td>
+                                        <td>33.66</td>
+                                        <td>33.93</td>
+                                </tr>
+                                <tr>
+                                <td>*-social-science</td>
+                                        <td>25.75</td>
+                                        <td>23.03</td>
+                                        <td>34.49</td>
+                                        <td>24.6</td>
+                                        <td>31.24</td>
+                                        <td>24.27</td>
+                                        <td>30.66</td>
+                                        <td>28.97</td>
+                                        <td>37.13</td>
+                                        <td>41.04</td>
+                                        <td>40.75</td>
+                                        <td>41.91</td>
+                                        <td>43.44</td>
+                                        <td>43.9</td>
+                                        <td>43.05</td>
+                                </tr>
+                                <tr>
+                                <td>*-humanities</td>
+                                        <td>29.66</td>
+                                        <td>22.25</td>
+                                        <td>17.71</td>
+                                        <td>23.19</td>
+                                        <td>26.43</td>
+                                        <td>26.13</td>
+                                        <td>26.22</td>
+                                        <td>27.66</td>
+                                        <td>28.96</td>
+                                        <td>36.84</td>
+                                        <td>34.29</td>
+                                        <td>39.71</td>
+                                        <td>38.02</td>
+                                        <td>37.55</td>
+                                        <td>35.75</td>
+                                </tr>
+                                <tr>
+                                <td>*-other</td>
+                                        <td>26.19</td>
+                                        <td>21.89</td>
+                                        <td>26.38</td>
+                                        <td>21.97</td>
+                                        <td>28.95</td>
+                                        <td>23.06</td>
+                                        <td>31.98</td>
+                                        <td>29.07</td>
+                                        <td>33.56</td>
+                                        <td>32.08</td>
+                                        <td>32.7</td>
+                                        <td>36.66</td>
+                                        <td>35.87</td>
+                                        <td>36.22</td>
+                                        <td>37.31</td>
+                                </tr>
+                                <tr>
+                                <td>*-hard</td>
+                                        <td>31.23</td>
+                                        <td>23.96</td>
+                                        <td>28.1</td>
+                                        <td>24.23</td>
+                                        <td>20.65</td>
+                                        <td>21.43</td>
+                                        <td>19.69</td>
+                                        <td>24.43</td>
+                                        <td>19.84</td>
+                                        <td>22.47</td>
+                                        <td>21.38</td>
+                                        <td>25.42</td>
+                                        <td>27.07</td>
+                                        <td>26.26</td>
+                                        <td>28.36</td>
+                                </tr>
+                                <tr>
+                                <td>CMMLU-Avg</td>
+                                        <td>25.51</td>
+                                        <td>25.24</td>
+                                        <td>25.17</td>
+                                        <td>24.83</td>
+                                        <td>24.7</td>
+                                        <td>25.59</td>
+                                        <td>27.95</td>
+                                        <td>29.84</td>
+                                        <td>30.42</td>
+                                        <td>31.33</td>
+                                        <td>32.14</td>
+                                        <td>32.86</td>
+                                        <td>35.56</td>
+                                        <td>36.97</td>
+                                        <td>36.4</td>
+                                </tr>
+                                <tr>
+                                <td>*-humanities</td>
+                                        <td>25.21</td>
+                                        <td>24.89</td>
+                                        <td>25</td>
+                                        <td>24.17</td>
+                                        <td>24.74</td>
+                                        <td>25.62</td>
+                                        <td>28.49</td>
+                                        <td>31.03</td>
+                                        <td>31.65</td>
+                                        <td>32.66</td>
+                                        <td>32.36</td>
+                                        <td>34.3</td>
+                                        <td>37.46</td>
+                                        <td>38.2</td>
+                                        <td>38.97</td>
+                                </tr>
+                                <tr>
+                                <td>*-stem</td>
+                                        <td>25.14</td>
+                                        <td>24.59</td>
+                                        <td>25.18</td>
+                                        <td>25.41</td>
+                                        <td>24.48</td>
+                                        <td>25.56</td>
+                                        <td>25.36</td>
+                                        <td>27.17</td>
+                                        <td>27.72</td>
+                                        <td>27.71</td>
+                                        <td>28.62</td>
+                                        <td>28.75</td>
+                                        <td>30.27</td>
+                                        <td>30.63</td>
+                                        <td>31.08</td>
+                                </tr>
+                                <tr>
+                                <td>*-social-science</td>
+                                        <td>26.17</td>
+                                        <td>25.93</td>
+                                        <td>24.88</td>
+                                        <td>24.58</td>
+                                        <td>25</td>
+                                        <td>26.04</td>
+                                        <td>29.83</td>
+                                        <td>31.15</td>
+                                        <td>30.68</td>
+                                        <td>32.84</td>
+                                        <td>34.7</td>
+                                        <td>34.75</td>
+                                        <td>37.57</td>
+                                        <td>40.05</td>
+                                        <td>37.97</td>
+                                </tr>
+                                <tr>
+                                <td>*-other</td>
+                                        <td>25.21</td>
+                                        <td>25.27</td>
+                                        <td>25.73</td>
+                                        <td>25.1</td>
+                                        <td>24.47</td>
+                                        <td>24.94</td>
+                                        <td>27.67</td>
+                                        <td>29.91</td>
+                                        <td>32.02</td>
+                                        <td>32.09</td>
+                                        <td>32.17</td>
+                                        <td>33.48</td>
+                                        <td>36.95</td>
+                                        <td>38.57</td>
+                                        <td>37.89</td>
+                                </tr>
+                                <tr>
+                                <td>*-china-specific</td>
+                                        <td>26.06</td>
+                                        <td>25.32</td>
+                                        <td>24.86</td>
+                                        <td>24.22</td>
+                                        <td>24.73</td>
+                                        <td>25.12</td>
+                                        <td>28.78</td>
+                                        <td>29.7</td>
+                                        <td>30.32</td>
+                                        <td>32.79</td>
+                                        <td>32.98</td>
+                                        <td>34.66</td>
+                                        <td>36.87</td>
+                                        <td>38.99</td>
+                                        <td>38.8</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h2 class="subtitle" style="font-style: italic; clear: both;">This table show cases evaluation results across a variety of datasets for models of different train tokens, from 13.3B to 1200B. 'BoolQ' stands for Boolean Questions, 'CB' for CommitmentBank, 'COPA' for Choice of Plausible Alternatives, 'RTE' for Recognizing Textual Entailment, 'MultiRC' for Multi-Sentence Reading Comprehension, 'WiC' for Words in Context, 'Piqa' for Physical IQA, 'Siqa' for Social IQA, 'ARC-e' and 'ARC-c' for ARC Easy and Challenge, 'OBQA' for Open Book Question Answering, 'CSQA' for Commonsense Question Answering, 'MBPP' for Mostly Basic Python Problems, 'Nq' for NaturalQuestions and 'Avg' represents the average over the benchmark. The '*' symbol refers to subsets within the MMLU, CMMLU, and C-Eval.</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero">
+        <h2 class="title has-text-centered">CHC-Bench</h2>
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <p><strong>Why CHC-Bench is hard for LLMs.</strong> CHC-Bench tests LLMs on their deep understanding of Chinese culture, history, traditions, as well as humanities, geography, and STEM, all within the Chinese context. It includes tasks that require knowledge of Chinese literary traditions, such as poetry and couplet writing, ancient Chinese comprehension, pronunciation mastery, and explanation of terms. LLMs trained mainly on English data might struggle with these tasks compared to English benchmarks like MTbench. Models with limited Chinese training data, like TinyLlama-1.1B-Chat, Deepseek-coder-1.3b, and Bloom-1.7b, often score below 3.00 in categories involving Chinese cultural and language understanding. For STEM, the assessment focuses on various difficulty levels, especially on Chinese high school subjects like math, physics, chemistry, biology, and coding, requiring understanding of Chinese commands.</p>
+                <div class="columns is-centered">
+                    <div class="column has-text-centered is-fifths-fifths">
+                        <table id="special-table" class="table table-bordered table-hover table-custom" style="margin: auto; width: auto;">
+                            <thead class="thead-light">
+                                <tr style="text-align: center;">
+                                    <th>Category</th>
+                                    <th style="min-width: 700px;">Subcategories</th>
+                                    <th style="min-width: 150px;">Total Questions</th>
+                                </tr>
+                            </thead>
+                            <tbody style="text-align: center;">
+                                <tr>
+                                    <td>Writing</td>
+                                    <td>Official documents, Advertisement Writing, Poetry and couplets, Creative writing</td>
+                                    <td>33</td>
+                                </tr>
+                                <tr>
+                                    <td>Humanity</td>
+                                    <td>Historical common sense, Geography(Gaokao), History (Gaokao)</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>Science</td>
+                                    <td>Physics(Gaokao), Chemistry(Gaokao), Biology(Gaokao)</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>Role-playing</td>
+                                    <td>20 Characters including Batman, Wukong, etc.</td>
+                                    <td>20</td>
+                                </tr>  
+                                <tr>
+                                    <td>Reading Comprehension</td>
+                                    <td>Chinese language (Gaokao), Information understanding, Argument analysis</td>
+                                    <td>30</td>
+                                </tr>
+                                <tr>
+                                    <td>Math</td>
+                                    <td>Elementary math, Middle school math, Math (Gaokao), College math</td>
+                                    <td>34</td>
+                                </tr>  
+                                <tr>
+                                    <td>Hard Cases</td>
+                                    <td>Ancient Chinese Language(Gaokao), Chinese pronunciation(Gaokao), Popular Chinese terms</td>
+                                    <td>37</td>
+                                </tr>
+                                <tr>
+                                    <td>Coding</td>
+                                    <td>Chinese command code generation, Code translation, Code annotation, Debugging</td>
+                                    <td>20</td>
+                                </tr> 
+                            </tbody>
+                        </table>
+                        <caption style="font-style: italic; clear: both;">CHC-Bench Problem Categories. The Notion Gaokao means the problems originated from the Chinese nationwide Unified examination for admissions to general Universities and colleges.</caption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero">
+        <h2 class="title has-text-centered">Ours vs. Others</h2>
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered is-fifths-fifths">
+                        <table id="special-table" class="table table-bordered table-hover table-custom" style="margin: auto; width: auto;">
+                            <thead class="thead-light">
+                                <tr style="text-align: center;">
+                                    <th style="min-width: 200px;">Model</th>
+                                    <th>COPA</th>
+                                    <th>Hellaswag</th>
+                                    <th>MMLU</th>
+                                    <th>Humaneval</th>
+                                    <th>Triviaqa</th>
+                                    <th>Lambada</th>
+                                    <th>Squad2.0</th>
+                                    <th>GSM8k</th>
+                                    <th>C-Eval</th>
+                                    <th>CMMLU</th>
+                                </tr>
+                            </thead>
+                            <tbody style="text-align: center;">
+                                <tr>
+                                    <td>Qwen1.5-1.8B</td>
+                                            <td>53.0</td>
+                                            <td>55.99</td>
+                                            <td style="text-decoration: underline;">47.06</td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">18.9</span></td>
+                                            <td>31.15</td>
+                                            <td>56.39</td>
+                                            <td><span class="number-box">30.06</span></td>
+                                            <td style="text-decoration: underline;">35.1</td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">59.38</span></td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">57.1</span></td>
+                                    </tr>
+                                    <tr>
+                                    <td>TinyLlama-1.1B</td>
+                                            <td>51.0</td>
+                                            <td>54.47</td>
+                                            <td>25.89</td>
+                                            <td>8.54</td>
+                                            <td>31.27</td>
+                                            <td>59.71</td>
+                                            <td>20.85</td>
+                                            <td>5.36</td>
+                                            <td>26.16</td>
+                                            <td>25.04</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Stablelm-3b-4e1t</td>
+                                            <td><span class="number-box">61.0</span></td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">69.08</span></td>
+                                            <td><span class="number-box">45.42</span></td>
+                                            <td style="text-decoration: underline;">15.85</td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">50.54</span></td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">70.35</span></td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">36.44</span></td>
+                                            <td>10.92</td>
+                                            <td><span class="number-box">31.71</span></td>
+                                            <td>31.48</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Gemma-2b</td>
+                                            <td style="text-decoration: underline;">64.0</td>
+                                            <td><span class="number-box">64.96</span></td>
+                                            <td>41.84</td>
+                                            <td><span class="number-box">9.15</span></td>
+                                            <td style="text-decoration: underline;">46.42</td>
+                                            <td style="text-decoration: underline;">63.38</td>
+                                            <td>6.86</td>
+                                            <td><span class="number-box">22.14</span></td>
+                                            <td>31.25</td>
+                                            <td>31.11</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Phi-2</td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">72.0</span></td>
+                                            <td style="text-decoration: underline;">67.74</td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">57.62</span></td>
+                                            <td>0.0</td>
+                                            <td><span class="number-box">41.04</span></td>
+                                            <td><span class="number-box">62.7</span></td>
+                                            <td style="text-decoration: underline;">34.81</td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">61.41</span></td>
+                                            <td>31.53</td>
+                                            <td><span class="number-box">32.19</span></td>
+                                    </tr>
+                                    <tr style="border-bottom: 3px solid #dfdbdb;"></tr>
+                                    <tr>
+                                    <td>CT-LLM(Ours)</td>
+                                            <td>59.0</td>
+                                            <td>50.37</td>
+                                            <td>37.11</td>
+                                            <td><span class="number-box">9.15</s</td>
+                                            <td>21.03</td>
+                                            <td>56.24</td>
+                                            <td>18.87</td>
+                                            <td>8.87</td>
+                                            <td style="text-decoration: underline;">36.78</td>
+                                            <td style="text-decoration: underline;">36.4</td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                        <caption style="font-style: italic;">Performance comparison of CT-LLM and other base models of the similar scale on benchmark. The best result are in <span style="background-color: lightblue; padding: 2px 4px;">blue</span>, the second-best results are <span style="text-decoration: underline;">underline</span>, and the third-best results are in <span class="number-box">fbox</span>. The evaluation metric employed for 'HumanEval' is 'pass@1', a standard maintained consistently throughout the text.</caption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered is-fifths-fifths">
+                        <table id="special-table" class="table table-bordered table-hover table-custom" style="margin: auto; width: auto;">
+                            <thead class="thead-light">
+                                <tr style="text-align: center;">
+                                    <th style="min-width: 200px;">Model</th>
+                                    <th>COPA</th>
+                                    <th>Hellaswag</th>
+                                    <th>MMLU</th>
+                                    <th>Humaneval</th>
+                                    <th>Triviaqa</th>
+                                    <th>Lambada</th>
+                                    <th>Squad2.0</th>
+                                    <th>GSM8k</th>
+                                    <th>C-Eval</th>
+                                    <th>CMMLU</th>
+                                </tr>
+                            </thead>
+                            <tbody style="text-align: center;">
+                                <tr>
+                                    <td>MiniCPM-2B-sft-fp32</td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">66.0</span></td>
+                                            <td style="text-decoration: underline;">65.88</td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">53.87</span></td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">45.12</span></td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">36.23</span></td>
+                                            <td style="text-decoration: underline;">60.62</td>
+                                            <td style="text-decoration: underline;">40.52</td>
+                                            <td style="text-decoration: underline;">55.8</td>
+                                            <td style="text-decoration: underline;">49.14</td>
+                                            <td style="text-decoration: underline;">51.0</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Gemma-2b-it</td>
+                                            <td>60.0</td>
+                                            <td><span class="number-box">56.68</span></td>
+                                            <td>37.71</td>
+                                            <td>0.0</td>
+                                            <td>29.0</td>
+                                            <td>55.91</td>
+                                            <td>18.46</td>
+                                            <td>15.69</td>
+                                            <td>32.3</td>
+                                            <td>33.07</td>
+                                    </tr>
+                                    <tr>
+                                    <td>TinyLlama-1.1B-Chat-v1.0</td>
+                                            <td>48.0</td>
+                                            <td>56.64</td>
+                                            <td>25.33</td>
+                                            <td>4.88</td>
+                                            <td><span class="number-box">32.31</span></td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">61.09</span></td>
+                                            <td>12.89</td>
+                                            <td>3.72</td>
+                                            <td>24.51</td>
+                                            <td>24.92</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Bloom-1.7B</td>
+                                            <td>57.0</td>
+                                            <td>44.45</td>
+                                            <td>27.38</td>
+                                            <td>0.0</td>
+                                            <td>18.73</td>
+                                            <td>48.36</td>
+                                            <td>8.68</td>
+                                            <td>1.44</td>
+                                            <td>22.93</td>
+                                            <td>24.51</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Deepseek-coder-1.3B-instruct</td>
+                                            <td>51.0</td>
+                                            <td>37.0</td>
+                                            <td>28.55</td>
+                                            <td style="text-decoration: underline;">43.29</td>
+                                            <td>10.85</td>
+                                            <td>35.32</td>
+                                            <td>28.85</td>
+                                            <td>8.79</td>
+                                            <td>28.33</td>
+                                            <td>27.75</td>
+                                    </tr>
+                                    <tr>
+                                    <td>Qwen1.5-1.8B-Chat</td>
+                                            <td>57.0</td>
+                                            <td>55.75</td>
+                                            <td><span class="number-box">45.86</span></td>
+                                            <td>6.71</td>
+                                            <td>24.31</td>
+                                            <td>48.83</td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">47.25</span></td>
+                                            <td><span class="number-box">28.73</span></td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">56.84</span></td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">54.11</span></td>
+                                    </tr>
+                                    <tr>
+                                    <td>Stablelm-zephyr-3B</td>
+                                            <td style="text-decoration: underline;">64.0</td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">67.94</span></td>
+                                            <td style="text-decoration: underline;">46.15</td>
+                                            <td><span class="number-box">24.39</span></td>
+                                            <td style="text-decoration: underline;">33.48</td>
+                                            <td><span class="number-box">57.46</span></td>
+                                            <td>21.19</td>
+                                            <td><span style="background-color: lightblue; padding: 2px 4px;">57.01</span></td>
+                                            <td>29.5</td>
+                                            <td>32.11</td>
+                                    </tr>
+                                    <tr style="border-bottom: 3px solid #dfdbdb;"></tr>
+                                    <tr>
+                                        <td>CT-LLM-SFT(Ours)</td>
+                                                <td>60.0</td>
+                                                <td>52.93</td>
+                                                <td>39.95</td>
+                                                <td>10.37</td>
+                                                <td>22.88</td>
+                                                <td>51.93</td>
+                                                <td><span class="number-box">35.18</s</td>
+                                                <td>19.18</td>
+                                                <td><span class="number-box">41.54</s</td>
+                                                <td>41.48</td>
+                                        </tr>
+                                        <tr>
+                                        <td>CT-LLM-SFT-DPO(Ours)</td>
+                                                <td><span class="number-box">61.0</s</td>
+                                                <td>53.38</td>
+                                                <td>39.82</td>
+                                                <td>7.93</td>
+                                                <td>23.64</td>
+                                                <td>51.47</td>
+                                                <td>31.36</td>
+                                                <td>18.5</td>
+                                                <td>41.18</td>
+                                                <td><span class="number-box">42.01</s</td>
+                                        </tr>
+                            </tbody>
+                        </table>
+                        <caption style="font-style: italic;">Performance of aligned models with a scale of around 2B on benchmark. The best result are in <span style="background-color: lightblue; padding: 2px 4px;">blue</span>, the second-best results are <span style="text-decoration: underline;">underline</span>, and the third-best results are in <span class="number-box">fbox</span>.</caption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- BibTex citation -->
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            Please kindly cite our paper if you use our code, data, models or results:
+            <br><br>
+            <pre><code>
+            </code></pre>
+        </div>
+    </section>
 
 
     <footer class="footer">
