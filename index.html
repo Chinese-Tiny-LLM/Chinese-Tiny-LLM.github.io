@@ -73,7 +73,16 @@
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
                         <h1 class="title is-1 publication-title">
-                            <img src="static/images/logo.png" style="width:1em;vertical-align: middle" alt="Logo" />
+                            <style>
+                                .logo {
+                                  width: 1.5em; /* 调整图标大小 */
+                                  position: relative; /* 使 top 和 left 属性生效 */
+                                  top: -10px; /* 向上移动 */
+                                  left: -5px; /* 向左移动 */
+                                  vertical-align: middle;
+                                }
+                              </style>
+                              <img src="static/images/logo.png" class="logo" alt="Logo" />
                             Chinese Tiny LLM:<br>
                             Pretraining a Chinese-Centric<br>Large Language Model
                         </h1>
@@ -1403,6 +1412,14 @@
         </div>
     </section>
 
+    <section class="section" id="license">
+        <div class="container is-max-desktop content">
+            <h2 class="title">License</h2>
+            <p>The MAP-CC Dataset is made available under the terms of the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (<a href="https://github.com/Chinese-Tiny-LLM/Chinese-Tiny-LLM/blob/main/LICENSE" target="_blank">CC BY-NC-ND 4.0 License</a>).</p>
+            <p>By using the MAP-CC Dataset, you accept and agree to be bound by the terms and conditions of the CC BY-NC-ND 4.0 License. This license allows users to share (copy and redistribute the material in any medium or format) the MAP-CC Dataset for non-commercial purposes only, and with no modifications or derivatives, as long as proper attribution is given to the creators. For further details, please refer to the <a href="static/LICENSE" target="_blank">LICENSE</a> file.</p>
+            <p>We chose the CC BY-NC-ND 4.0 License for the MAP-CC Dataset to facilitate academic and educational use, promoting the spread of knowledge while protecting the work of the creators from unauthorized commercial use or modification.</p>
+        </div>
+    </section>
 
     <!-- BibTex citation -->
     <section class="section" id="BibTeX">
